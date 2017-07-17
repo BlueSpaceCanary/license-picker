@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"errors"
 	"fmt"
 	"os"
 )
@@ -10,6 +9,7 @@ import (
 type node interface {
 	ChoiceText() string
 	NodeText() string
+	OnMatch()
 }
 
 type fork struct {
@@ -39,44 +39,40 @@ func (l *leaf) NodeText() string {
 	return l.node_text
 }
 
+func (l *leaf) OnMatch() {
+	fmt.Printf("***** %s *****\n", l.node_text)
+}
+
 func (f *fork) addChild(n node) {
 	f.children = append(f.children, n)
 }
 
-// #go
-func (f *fork) getMatch(in string) (interface{}, error) {
+func (f *fork) getMatch(in string) node {
 	for _, n := range f.children {
 		if fmt.Sprintf("%s\n", n.ChoiceText()) == in {
-			return n, nil
+			return n
 		}
 	}
 
-	return nil, errors.New("No match")
+	return nil
 }
 
-func (f *fork) walk() {
+func (f *fork) OnMatch() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Printf("%s? (or \"help\" to list options): ", f.node_text)
 	txt, _ := reader.ReadString('\n')
 
-	m, err := f.getMatch(txt)
-	if err != nil {
+	m := f.getMatch(txt)
+	if m == nil {
 		fmt.Println("Options: ")
 		for _, n := range f.children {
-			fmt.Println(n.ChoiceText())
+			fmt.Println("- ", n.ChoiceText())
 		}
 
-		f.walk()
-		return
-	}
-
-	switch t := m.(type) {
-	default:
-		panic("go away you jerk")
-	case (*fork):
-		t.walk()
-	case (*leaf):
-		fmt.Printf("*****%s*****n", t.node_text)
+		// ask again
+		f.OnMatch()
+	} else {
+		m.OnMatch()
 	}
 }
 
@@ -131,5 +127,5 @@ func lolsetup() fork {
 
 func main() {
 	root := lolsetup()
-	root.walk()
+	root.OnMatch()
 }
