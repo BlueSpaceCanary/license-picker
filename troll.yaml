@@ -1,0 +1,25 @@
+How_to_pick_an_open_source_license:
+  do_you_care:
+    NO: 'WTFPL/CC0'
+    SURE:
+      about_non_US_folks:
+        HAHANO: 'Public Domain'
+        SURE:
+          Patents:
+            LOL:
+              Copyleft:
+                YES:
+                  Bernie_or_Lenin:
+                    Bernie: 'LGPLv2'
+                    Lenin: 'GPLv2'
+                NOPE:
+                  can_companies_be_dicks:
+                    whatomgno: 'BSD 3 clause'
+                    stop_asking_me_stuff: 'MIT/X11/ZLIB'
+            oh_shit:
+              Copyleft:
+                NOPE: 'Apache 2.0'
+                Bernie_or_Lenin:
+                  Bernie: 'LGPLv3'
+                  Lenin: 'GPLv3'
+                  Mao: 'AGPLv3'
