@@ -1,0 +1,11 @@
+[package]
+
+name = "license-picker"
+version = "0.0.1"
+authors = [ "iximeow <me@iximeow.net>", "BlueSpaceCanary <BlueSpaceCanary@users.noreply.github.com>" ]
+license = "GPLv1"
+description = "dont @ me nerds"
+
+[[bin]]
+name = "license-picker"
+path = "main.rs"
