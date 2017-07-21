@@ -3,7 +3,7 @@ from setuptools import setup
 setup(author="Andrew Michaud",
 
       classifiers=["Development Status :: 5 - Production/Stable",
-                   "License :: OSI Approved :: Artistic License",
+                   "License :: Artistic License v1.0",
                    "Natural Language :: English",
                    "Operating System :: MacOS :: MacOS X",
                    "Operating System :: POSIX :: Linux",
@@ -18,6 +18,6 @@ setup(author="Andrew Michaud",
 
       keywords=[],
 
-      license="Artistic License",
+      license="Artistic License v1.0",
 
       version="1.0.0")
