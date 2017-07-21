@@ -3,7 +3,6 @@
 
 class Node:
     """Node in a tree."""
-    #
     def __init__(self, text=None, path_text=None, children=[]):
         self.text = text
         self.path_text = path_text
