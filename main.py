@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.6
 
+
 class Node:
     """Node in a tree."""
     #
@@ -16,7 +17,6 @@ class Node:
                 print(f"- {child.path_text}")
 
             return None
-
 
         else:
             return choices[0]
@@ -40,6 +40,7 @@ def setup():
                                       Node(text="Patents?",
                                            path_text="sure",
                                            children=[
+
                                                Node(text="Copyleft",
                                                     path_text="LOL",
                                                     children=[
